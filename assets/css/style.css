@@ -1,9 +1,6 @@
-#gem-1,
-#gem-2,
-#gem-3,
-#gem-4 {
+.gem {
     width: 20px;
     height: 20px;
-    background-color: black;
+    background-color: yellow;
     margin: 20px;
 }
