@@ -31,9 +31,15 @@ function setUp() {
     for (let i = 0; i < gemNumbers.length; i++) {
         const gem = $("<div>");
         gem.addClass("gem");
+        gem.addClass("gem" + randomIntBetween(1, 5));
+
         gem.attr("data-rand-num", gemNumbers[i]);
-        $("#gem-holder").append(gem);
+        $("#gem-holder" + i).append(gem);
+
+
+
     }
+    addStyle();
 
     $(".gem").on("click", function() {
         userScore += parseInt($(this).attr("data-rand-num"));
@@ -49,15 +55,43 @@ function compare(userNum, compNum) {
         console.log("you win");
         win++;
         winHolder.text(win);
-        $("#gem-holder").empty();
+        $(".gem-holder").empty();
         setUp();
 
     } else if (userNum > compNum) {
         console.log("you lose");
         loss++;
         lossHolder.text(loss);
-        $("#gem-holder").empty();
+        $(".gem-holder").empty();
         setUp();
 
     } else {}
+}
+
+function addStyle() {
+    for (let i = 0; i < 6; i++) {
+        const part = $("<div>");
+        part.addClass("part" + i);
+        $(".gem").append(part);
+    }
+
+    // const part2 = $("<div>");
+    // part2.addClass("part2");
+    // $(".gem").append(part2);
+
+    // const part3 = $("<div>");
+    // part3.addClass("part3");
+    // $(".gem").append(part3);
+
+    // const part4 = $("<div>");
+    // part4.addClass("part4");
+    // $(".gem").append(part4);
+
+    // const part5 = $("<div>");
+    // part5.addClass("part5");
+    // $(".gem").append(part5);
+
+    // const part6 = $("<div>");
+    // part6.addClass("part6");
+    // $(".gem").append(part6);
 }
