@@ -1,8 +1,41 @@
+header {
+    background-color: grey;
+    font-size: 3em;
+    font: lightgray;
+    padding: 20px;
+}
+
+p {
+    font-size: 2em;
+}
+
 #gem-container {
     position: relative;
     background-color: black;
-    margin: 50px 1%;
     height: 100px;
+    width: 500px;
+}
+
+#target-number {
+    display: inline;
+    margin: 10px;
+    font-size: 3em;
+}
+
+#scores {
+    margin: 10px;
+}
+
+#score {
+    display: inline;
+    margin: 10px;
+    font-size: 3em;
+}
+
+.col {
+    width: 48%;
+    float: left;
+    margin: 10px;
 }
 
 .gem-holder {

@@ -8,6 +8,9 @@ const winHolder = $("#win-holder").text(win);
 const lossHolder = $("#loss-holder").text(loss);
 const targetNumber = $("#target-number").text(computerNumber);
 const valueHolder = $("#value-holder").text("???");
+
+//starts the game
+
 setUp();
 
 
@@ -20,39 +23,7 @@ function randomIntBetween(min, max) {
     return randNum;
 }
 
-function setUp() {
-    computerNumber = randomIntBetween(19, 120);
-    targetNumber.text(computerNumber);
-    userScore = 0
 
-    for (let i = 0; i < gemNumbers.length; i++) {
-        gemNumbers[i] = randomIntBetween(1, 12);
-    }
-
-    for (let i = 0; i < gemNumbers.length; i++) {
-        const gem = $("<div>");
-        gem.addClass("gem");
-        gem.addClass("gem" + randomIntBetween(1, 5));
-        gem.append('<div id="value' + [i] + '" class="value hidden">' + gemNumbers[i] + '</div>');
-
-        gem.attr("data-rand-num", gemNumbers[i]);
-        $("#gem-holder" + i).append(gem);
-
-
-
-
-    }
-    addStyle();
-
-    $(".gem").on("click", function() {
-        userScore += parseInt($(this).attr("data-rand-num"));
-        $("div", this).removeClass("hidden")
-        compare(userScore, computerNumber);
-        $("#score").text(userScore);
-
-
-    });
-}
 
 function compare(userNum, compNum) {
     if (userNum === compNum) {
@@ -80,4 +51,39 @@ function addStyle() {
     }
 
 
+}
+
+function setUp() {
+    computerNumber = randomIntBetween(19, 120);
+    targetNumber.text(computerNumber);
+    userScore = 0
+
+    for (let i = 0; i < gemNumbers.length; i++) {
+        gemNumbers[i] = randomIntBetween(1, 12);
+    }
+
+    for (let i = 0; i < gemNumbers.length; i++) {
+        const gem = $("<div>");
+        const value = '<div id="value' + [i] + '" class="value hidden">' + gemNumbers[i] + '</div>'
+        gem.addClass("gem");
+        gem.addClass("gem" + randomIntBetween(1, 5));
+        gem.append(value);
+
+        gem.attr("data-rand-num", gemNumbers[i]);
+        $("#gem-holder" + i).append(gem);
+
+
+
+
+    }
+    addStyle();
+
+    $(".gem").on("click", function() {
+        userScore += parseInt($(this).attr("data-rand-num"));
+        $("div", this).removeClass("hidden")
+        compare(userScore, computerNumber);
+        $("#score").text(userScore);
+
+
+    });
 }
