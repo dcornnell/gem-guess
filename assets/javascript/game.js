@@ -64,26 +64,24 @@ function setUp() {
 
     for (let i = 0; i < gemNumbers.length; i++) {
         const gem = $("<div>");
-        const value = '<div id="value' + [i] + '" class="value hidden">' + gemNumbers[i] + '</div>'
+
         gem.addClass("gem");
         gem.addClass("gem" + randomIntBetween(1, 5));
-        gem.append(value);
+        //shows the value of the gem after the first click with line 82
+        //const value = '<div id="value' + [i] + '" class="value hidden">' + gemNumbers[i] + '</div>'
+        //gem.append(value);
 
         gem.attr("data-rand-num", gemNumbers[i]);
         $("#gem-holder" + i).append(gem);
 
-
-
-
     }
     addStyle();
-
+    /// generates a random css gem
     $(".gem").on("click", function() {
         userScore += parseInt($(this).attr("data-rand-num"));
-        $("div", this).removeClass("hidden")
+        //$("div", this).removeClass("hidden")
         compare(userScore, computerNumber);
         $("#score").text(userScore);
-
 
     });
 }
