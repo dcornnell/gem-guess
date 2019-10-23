@@ -1,9 +1,8 @@
 #gem-container {
     position: relative;
     background-color: black;
-    height: 100px;
     margin: 50px 1%;
-    max-width: 40%;
+    height: 100px;
 }
 
 .gem-holder {
@@ -78,6 +77,7 @@
 
 .gem2 {
     position: relative;
+    top: 10px;
 }
 
 .gem2>.part1 {
@@ -172,7 +172,7 @@
     border-right: 6px solid transparent;
     height: 0;
     width: 45px;
-    transform: rotate(-57deg);
+    transform: rotate(-60deg);
     top: 14px;
     left: 8px;
 }
@@ -185,8 +185,9 @@
     height: 40px;
     width: 45px;
     transform: rotate(180deg);
-    top: -3px;
+    top: -6px;
     left: -4px;
+    z-index: 0;
 }
 
 .gem4 {
@@ -212,4 +213,17 @@
     z-index: 1;
     top: 2px;
     left: 5px;
+}
+
+.value {
+    position: absolute;
+    top: 35px;
+    left: 40px;
+    font-size: 1em;
+    color: yellow;
+    z-index: 10;
+}
+
+.hidden {
+    visibility: hidden;
 }
